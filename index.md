@@ -5,5 +5,7 @@
 
 <h1>Hejsan och välkommen</h1>
 
+<a href="page1.html">En annan sida</a>
+
 </body>
 </html>
