@@ -4,6 +4,7 @@
 <body>
 
 <h1>Hejsan och välkommen</h1>
+detta är en text
 
 <a href="page1.html">En annan sida</a>
 
