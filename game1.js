@@ -7,7 +7,10 @@ var player = new Image();
 var bg = new Image();
 
 player.src = "images/chung.png";
-bg.src = "images/clone.png";
+ctx.beginPath();
+ctx.rect(0, 0, 2000, 2000);
+ctx.fillStyle = "gray";
+
 
 
 
@@ -25,13 +28,11 @@ var gravity = 1;
 var KeyboardHelper = { left: 37, up: 38, right: 39, down: 40 };
 
 // audio files
-
 var fly = new Audio();
-
 fly.src = "sounds/fly.mp3";
 
-// on key down
 
+// on key down
 document.addEventListener("keydown",handleKeyDown);
 
 
@@ -55,17 +56,12 @@ function handleKeyDown(){
   }
 }
 
-
-// pipe coordinates
-
-
-
-
 // draw images
 
 function draw(){
     ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
-    ctx.drawImage(bg,0,0);
+    ctx.fillStyle = "#505050"
+    ctx.fill();
     if (dx > 10)
     dx = 10;
     if (dy > 10)
