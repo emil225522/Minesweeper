@@ -10,7 +10,7 @@ function make2DArray(cols, rows) {
 var grid;
 var cols;
 var rows;
-var w = 50;
+var w = 60;
 
 
 function setup() {
