@@ -10,11 +10,11 @@ function make2DArray(cols, rows) {
 var grid;
 var cols;
 var rows;
-var w = 20;
+var w = 50;
 
 
 function setup() {
-  createCanvas(401, 401);
+  createCanvas(801, 801);
   cols = 20;
   rows = 20;
   grid = make2DArray(cols, rows);
