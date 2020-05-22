@@ -15,8 +15,8 @@ var w = 50;
 
 function setup() {
   createCanvas(601, 601);
-  cols = floor(width/w);
-  rows = floor(height/w);
+  cols = floor(width / w);
+  rows = floor(height / w);
   grid = make2DArray(cols, rows);
   for (var i = 0; i < cols; i++) {
     for (var j = 0; j < rows; j++) {
@@ -41,17 +41,25 @@ function setup() {
 }
 
 function mousePressed() {
+
   for (var i = 0; i < cols; i++) {
     for (var j = 0; j < rows; j++) {
       if (grid[i][j].contains(mouseX, mouseY)) {
-        grid[i][j].reveal();
+        if (mouseButton == LEFT) {
 
-        if (grid[i][j].bomb) {
-          gameOver();
+          grid[i][j].reveal();
+
+          if (grid[i][j].bomb) {
+            gameOver();
+          }
+        }
+        else if (mouseButton == RIGHT) {
+          grid[i][j].flagged = !grid[i][j].flagged;
         }
       }
     }
   }
+
 }
 function gameOver() {
   for (var i = 0; i < cols; i++) {
