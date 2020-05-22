@@ -23,6 +23,21 @@ function setup() {
       grid[i][j] = new Cell(i, j, w);
     }
   }
+  for (var i = 0; i < cols; i++) {
+    for (var j = 0; j < rows; j++) {
+      if (floor(Math.random() * 10) == 5) {
+        grid[i][j].bomb = true;
+      }
+      else {
+        grid[i][j].bomb = false;
+      }
+    }
+  }
+  for (var i = 0; i < cols; i++) {
+    for (var j = 0; j < rows; j++) {
+      grid[i][j].countBombs();
+    }
+  }
 }
 
 function mousePressed() {
