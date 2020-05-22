@@ -14,16 +14,15 @@ var w = 50;
 
 
 function setup() {
-  createCanvas(800, 800);
-  cols = width/w
-  rows = height/w
+  createCanvas(601, 601);
+  cols = floor(width/w);
+  rows = floor(height/w);
   grid = make2DArray(cols, rows);
   for (var i = 0; i < cols; i++) {
     for (var j = 0; j < rows; j++) {
-      grid[i][j] = new Cell(i*w, j*w, w);
+      grid[i][j] = new Cell(i, j, w);
     }
   }
-  
 }
 
 function mousePressed() {
@@ -36,6 +35,13 @@ function mousePressed() {
           gameOver();
         }
       }
+    }
+  }
+}
+function gameOver() {
+  for (var i = 0; i < cols; i++) {
+    for (var j = 0; j < rows; j++) {
+      grid[i][j].revealed = true;
     }
   }
 }
