@@ -30,7 +30,7 @@ function setup() {
   }
   for (var i = 0; i < cols; i++) {
     for (var j = 0; j < rows; j++) {
-      if (floor(Math.random() * 7) == 5 && amountOfBombs < maxBomb) {
+      if (floor(Math.random() * 9) == 5 && amountOfBombs < maxBomb) {
         grid[i][j].bomb = true;
         amountOfBombs++;
       }
