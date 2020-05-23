@@ -13,7 +13,7 @@ var rows;
 var w = 50;
 var revealedCount;
 var amountOfBombs = 0;
-var maxBomb = 2
+var maxBomb = 20;
 var gameWon = false;
 
 
@@ -30,7 +30,7 @@ function setup() {
   }
   for (var i = 0; i < cols; i++) {
     for (var j = 0; j < rows; j++) {
-      if (floor(Math.random() * 10) == 5 && amountOfBombs < maxBomb) {
+      if (floor(Math.random() * 7) == 5 && amountOfBombs < maxBomb) {
         grid[i][j].bomb = true;
         amountOfBombs++;
       }
