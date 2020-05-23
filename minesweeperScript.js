@@ -11,9 +11,14 @@ var grid;
 var cols;
 var rows;
 var w = 50;
+var revealedCount;
+var amountOfBombs = 0;
+var maxBomb = 2
+var gameWon = false;
 
 
 function setup() {
+  var amountOfBombs = 0;
   createCanvas(601, 601);
   cols = floor(width / w);
   rows = floor(height / w);
@@ -25,8 +30,9 @@ function setup() {
   }
   for (var i = 0; i < cols; i++) {
     for (var j = 0; j < rows; j++) {
-      if (floor(Math.random() * 10) == 5) {
+      if (floor(Math.random() * 10) == 5 && amountOfBombs < maxBomb) {
         grid[i][j].bomb = true;
+        amountOfBombs++;
       }
       else {
         grid[i][j].bomb = false;
@@ -59,15 +65,37 @@ function mousePressed() {
       }
     }
   }
-
+  revealedCount = 0;
+  for (var i = 0; i < cols; i++) {
+    for (var j = 0; j < rows; j++) {
+      if (grid[i][j].revealed) {
+        revealedCount++;
+      }
+    }
+  }
+  console.log(revealedCount);
+  if (revealedCount == cols*rows -maxBomb){
+    winGame();
+  }
 }
+
 function gameOver() {
   for (var i = 0; i < cols; i++) {
     for (var j = 0; j < rows; j++) {
       grid[i][j].revealed = true;
     }
   }
+  setTimeout( function ( ) { alert( "You have lost!" ); }, 100 );
 }
+function winGame(){
+  for (var i = 0; i < cols; i++) {
+    for (var j = 0; j < rows; j++) {
+      grid[i][j].revealed = true;
+    }
+  }
+  setTimeout( function ( ) { alert( "You have won!" ); }, 100 );
+  }
+
 
 function draw() {
   background(0);
