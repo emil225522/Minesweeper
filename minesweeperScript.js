@@ -13,11 +13,13 @@ var rows;
 var w = 50;
 var revealedCount;
 var amountOfBombs = 0;
-var maxBomb = 20;
+var maxBomb = 15;
 var gameWon = false;
+var difficulty = 1;
 
 
 function setup() {
+  maxBomb = 20 * difficulty - 5;
   var amountOfBombs = 0;
   createCanvas(601, 601);
   cols = floor(width / w);
@@ -30,7 +32,7 @@ function setup() {
   }
   for (var i = 0; i < cols; i++) {
     for (var j = 0; j < rows; j++) {
-      if (floor(Math.random() * 9) == 5 && amountOfBombs < maxBomb) {
+      if (floor(Math.random() * (9 - maxBomb/10)) == 2 && amountOfBombs < maxBomb) {
         grid[i][j].bomb = true;
         amountOfBombs++;
       }
@@ -104,4 +106,7 @@ function draw() {
       grid[i][j].show();
     }
   }
+}
+function setDifficulty( difficulty) {
+this.difficulty = difficulty;
 }

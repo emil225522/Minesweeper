@@ -13,6 +13,9 @@ function Cell(x, y, w) {
   this.revealed = false;
 }
 Cell.prototype.show = function () {
+  
+  textFont('Georgia');
+  textSize(26);
   stroke(0);
   noFill();
   rect(this.x, this.y, this.w, this.w);
@@ -26,7 +29,35 @@ Cell.prototype.show = function () {
       rect(this.x, this.y, this.w, this.w);
       if (this.neighborCount > 0) {
         textAlign(CENTER);
-        fill(5);
+        stroke(0);
+        fill(0);
+        switch(this.neighborCount) {
+          case 1:
+            fill(0,0,255);
+            stroke(0,0,150);
+            break;
+          case 2:
+            fill(0,150,0);
+            stroke(0,100,0);
+            break;
+          case 3:
+            fill(255,0,0);
+            stroke(200,0,0);
+            break;
+          case 4:
+            fill(0,0,150);
+            stroke(0,0,100);
+            break;
+          case 5:
+            fill(82,3,1);
+            stroke(50,0,0);
+            break;
+          case 6:
+            fill(255,0,255);
+            stroke(200,0,200);
+            break;
+            // code block
+        }
         text(this.neighborCount, this.x + this.w * 0.5, this.y + this.w - 6);
       }
     }
