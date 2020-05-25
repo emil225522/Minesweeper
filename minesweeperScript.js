@@ -10,7 +10,7 @@ function make2DArray(cols, rows) {
 var grid;
 var cols;
 var rows;
-var w = 50;
+var w = 40;
 var revealedCount;
 var amountOfBombs = 0;
 var maxBomb = 15;
@@ -19,25 +19,34 @@ var difficulty = 1;
 
 
 function setup() {
-  maxBomb = 20 * difficulty - 5;
+  maxBomb = 15 * difficulty + 5;
   var amountOfBombs = 0;
-  createCanvas(601, 601);
+  if (difficulty == 1)
+  var cvs= createCanvas(561, 561);
+  else if(difficulty == 2)
+  var cvs=createCanvas(681,681);
+  else if (difficulty == 3)
+  var cvs=createCanvas(761,761);
+  
   cols = floor(width / w);
   rows = floor(height / w);
   grid = make2DArray(cols, rows);
   for (var i = 0; i < cols; i++) {
     for (var j = 0; j < rows; j++) {
       grid[i][j] = new Cell(i, j, w);
+      grid[i][j].bomb = false;
     }
   }
-  for (var i = 0; i < cols; i++) {
-    for (var j = 0; j < rows; j++) {
-      if (floor(Math.random() * (9 - maxBomb/10)) == 2 && amountOfBombs < maxBomb) {
-        grid[i][j].bomb = true;
+  var randI;
+  var randJ;
+
+  while (amountOfBombs < maxBomb) {
+    randI = floor(Math.random() * cols);
+    randJ = floor(Math.random() * rows);
+    if (floor(Math.random() * (9 - maxBomb / 10)) == 2) {
+      while (!grid[randI][randJ].bomb) {
+        grid[randI][randJ].bomb = true;
         amountOfBombs++;
-      }
-      else {
-        grid[i][j].bomb = false;
       }
     }
   }
@@ -76,7 +85,7 @@ function mousePressed() {
     }
   }
   console.log(revealedCount);
-  if (revealedCount == cols*rows -maxBomb){
+  if (revealedCount == cols * rows - maxBomb) {
     winGame();
   }
 }
@@ -87,16 +96,16 @@ function gameOver() {
       grid[i][j].revealed = true;
     }
   }
-  setTimeout( function ( ) { alert( "You have lost!" ); }, 100 );
+  setTimeout(function () { alert("You have lost!"); setup(); }, 100);
 }
-function winGame(){
+function winGame() {
   for (var i = 0; i < cols; i++) {
     for (var j = 0; j < rows; j++) {
       grid[i][j].revealed = true;
     }
   }
-  setTimeout( function ( ) { alert( "You have won!" ); }, 100 );
-  }
+  setTimeout(function () { alert("You have won!"); }, 100);
+}
 
 
 function draw() {
@@ -107,6 +116,7 @@ function draw() {
     }
   }
 }
-function setDifficulty( difficulty) {
-this.difficulty = difficulty;
+function setDifficulty(difficulty) {
+  this.difficulty = difficulty;
+  setup();
 }

@@ -6,7 +6,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/addons/p5.dom.min.js"></script>
     <title>Game</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <button class="stylesheet button" onclick="setup()">Reset</button>
     <body style="background-color:grey;">
       <body oncontextmenu="return false;"></body>
 
@@ -14,10 +13,12 @@
   </head>
   <body>
    
-   <script src="minesweeperScript.js"></script>
-   <script src="cell.js"></script>
+
    
    <div class="dropdown">
+    <script src="minesweeperScript.js"></script>
+    <script src="cell.js"></script>
+    <button class="stylesheet button" onclick="setup()">Reset</button>
      <button onclick="myFunction()" class="stylesheet dropbtn">Change difficulty</button>
      <div id="myDropdown" class="dropdown-content">
        <a href="#"onclick="setDifficulty(1)">Easy</a>
