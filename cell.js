@@ -66,9 +66,9 @@ Cell.prototype.show = function () {
     fill(200);
     rect(this.x, this.y, this.w, this.w);
     if (this.flagged){
-      fill(127);
+      fill(255,150,0);
       //creates a triangles, uhh this was harder than it should have been
-      triangle(this.x +10, this.y + this.w - 10 ,this.x + this.w/2,this.y + 10,this.x + this.w - 10, this.y + this.w - 10);
+      triangle(this.x +5, this.y + this.w - 5 ,this.x + this.w/2,this.y + 5,this.x + this.w - 5, this.y + this.w - 5);
     }
     
   }
