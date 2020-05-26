@@ -16,18 +16,21 @@ var amountOfBombs = 0;
 var maxBomb = 15;
 var gameWon = false;
 var difficulty = 1;
+var timer = 0;
+var hold = false;
+var justFlagged = false;
 
 
 function setup() {
   maxBomb = 15 * difficulty + 5;
   var amountOfBombs = 0;
   if (difficulty == 1)
-  var cvs= createCanvas(561, 561);
-  else if(difficulty == 2)
-  var cvs=createCanvas(681,681);
+    var cvs = createCanvas(561, 561);
+  else if (difficulty == 2)
+    var cvs = createCanvas(681, 681);
   else if (difficulty == 3)
-  var cvs=createCanvas(761,761);
-  
+    var cvs = createCanvas(761, 761);
+
   cols = floor(width / w);
   rows = floor(height / w);
   grid = make2DArray(cols, rows);
@@ -56,9 +59,13 @@ function setup() {
     }
   }
 }
-
 function mousePressed() {
-
+  hold = true;
+}
+function mouseReleased() {
+  hold = false;
+  timer = 0;
+  if (justFlagged == false){
   for (var i = 0; i < cols; i++) {
     for (var j = 0; j < rows; j++) {
       if (grid[i][j].contains(mouseX, mouseY)) {
@@ -76,6 +83,8 @@ function mousePressed() {
       }
     }
   }
+}
+justFlagged = false;
   revealedCount = 0;
   for (var i = 0; i < cols; i++) {
     for (var j = 0; j < rows; j++) {
@@ -84,7 +93,6 @@ function mousePressed() {
       }
     }
   }
-  console.log(revealedCount);
   if (revealedCount == cols * rows - maxBomb) {
     winGame();
   }
@@ -110,6 +118,22 @@ function winGame() {
 
 function draw() {
   background(0);
+  if (hold == true) {
+    console.log("hesa" + timer);
+    timer++;
+    if (timer > 30) {
+
+      for (var i = 0; i < cols; i++) {
+        for (var j = 0; j < rows; j++) {
+          if (grid[i][j].contains(mouseX, mouseY) && justFlagged == false) {
+            grid[i][j].flagged = !grid[i][j].flagged;
+            justFlagged = true;
+            break;
+          }
+        }
+      }
+    }
+  }
   for (var i = 0; i < cols; i++) {
     for (var j = 0; j < rows; j++) {
       grid[i][j].show();
