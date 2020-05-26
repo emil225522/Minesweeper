@@ -59,6 +59,14 @@ function setup() {
     }
   }
 }
+function touchstart() {
+  hold = true;
+}
+function touchend() {
+  //stops short touches from firing the event
+  mouseReleased();
+  }
+
 function mousePressed() {
   hold = true;
 }
