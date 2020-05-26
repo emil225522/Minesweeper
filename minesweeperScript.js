@@ -129,7 +129,7 @@ function draw() {
   if (hold == true) {
     console.log("hesa" + timer);
     timer++;
-    if (timer > 20) {
+    if (timer > 15) {
 
       for (var i = 0; i < cols; i++) {
         for (var j = 0; j < rows; j++) {
