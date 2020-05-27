@@ -8,8 +8,6 @@ body{
 }
 
 canvas{
-  /*
-  top:-180px;bottom:0;right:0;left:0;*/
   margin:auto;
 }
 
@@ -25,76 +23,41 @@ canvas{
 
 }
 
-.button {
-        border: none;
-        color: white;
-        background-color: #4CAF50;
-        padding: 25px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
+.bojs button{
+  border: none;
+  color: white;
+  background-color: #4CAF50;
+  padding: 0px 10px;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  height: 4vh;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
 
-        height: 5vh;
+.bojs button:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+      
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
 
-        /*position: fixed;
-        right: 5vw;
-        */
-        
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-      }
-      .button:hover {
-        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-      }
-      .dropbtn {
-        border: none;
-        color: white;
-        background-color: #4CAF50;
-        padding: 5px 40px;
-        text-align: left;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        /*position: fixed;
-        left: 100px;
-        */
-      }
-      
-      .dropbtn:hover, .dropbtn:focus {
-        background-color: #2980B9;
-      }
-      
-      
-      .dropdown-content {
-        display: none;
-        /*position: absolute;
-        position: fixed;
-        left: 100px;
-        top: 50px;*/
-        background-color: #f1f1f1;
-        min-width: 160px;
-        overflow: auto;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-      }
-      
-      .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-      }
-      .dropbtn {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-      }
-      .dropbtn:hover {
-        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-      }
-      
-      .dropdown a:hover {background-color: #ddd;}
-      
-      .show {display: block;}
+.dropdown-content {
+  display: none;
+  background-color: #f1f1f1;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
