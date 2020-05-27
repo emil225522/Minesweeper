@@ -12,19 +12,27 @@
       
   </head>
   <body>
-   
+    <div>
+      <div class="bajs" id="bajs"></div>
 
-    <button class="stylesheet button" onclick="setup()">Reset</button>
+      <div class="bojs">
+        <button class="stylesheet button" onclick="setup()">Reset</button>
+        <div>
+          <button onclick="myFunction()" class="stylesheet dropbtn">Change difficulty</button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="#"onclick="setDifficulty(1)">Easy</a>
+            <a href="#"onclick="setDifficulty(2)">Intermediate</a>
+            <a href="#"onclick="setDifficulty(3)">Hard</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
    <div class="dropdown">
     <script src="minesweeperScript.js"></script>
     <script src="cell.js"></script>
 
-     <button onclick="myFunction()" class="stylesheet dropbtn">Change difficulty</button>
-     <div id="myDropdown" class="dropdown-content">
-       <a href="#"onclick="setDifficulty(1)">Easy</a>
-       <a href="#"onclick="setDifficulty(2)">Intermediate</a>
-       <a href="#"onclick="setDifficulty(3)">Hard</a>
-     </div>
    </div>
   <script>
 /* When the user clicks on the button, 
