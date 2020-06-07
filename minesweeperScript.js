@@ -19,9 +19,11 @@ var difficulty = 1;
 var timer = 0;
 var hold = false;
 var justFlagged = false;
+var gameBegun = false;
 
 
 function setup() {
+  gameBegun = false;
   maxBomb = 15 * difficulty + 5;
   var amountOfBombs = 0;
   if (difficulty == 1)
@@ -81,8 +83,13 @@ function mouseReleased() {
 
           grid[i][j].reveal();
 
-          if (grid[i][j].bomb) {
+          if (grid[i][j].bomb && gameBegun) {
             gameOver();
+          }
+          else{
+            gameBegun = true;
+            grid[i][j].bomb = false;
+            grid[i][j].reveal();
           }
         }
         else if (mouseButton == RIGHT) {
