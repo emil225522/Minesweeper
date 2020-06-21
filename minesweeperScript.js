@@ -32,7 +32,7 @@ function setup() {
     var cvs = createCanvas(681, 681);
   else if (difficulty == 3)
     var cvs = createCanvas(761, 761);
-cvs.parent("bajs")
+  cvs.parent("bajs")
   cols = floor(width / w);
   rows = floor(height / w);
   grid = make2DArray(cols, rows);
@@ -136,7 +136,7 @@ function draw() {
   if (hold == true) {
     console.log("hesa" + timer);
     timer++;
-    if (timer > 15) {
+    if (timer > 10) {
 
       for (var i = 0; i < cols; i++) {
         for (var j = 0; j < rows; j++) {
