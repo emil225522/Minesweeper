@@ -134,7 +134,6 @@ function winGame() {
 function draw() {
   background(0);
   if (hold == true) {
-    console.log("hesa" + timer);
     timer++;
     if (timer > 10) {
 
