@@ -32,7 +32,7 @@ function setup() {
     var cvs = createCanvas(681, 681);
   else if (difficulty == 3)
     var cvs = createCanvas(761, 761);
-  cvs.parent("bajs")
+  cvs.parent("ba")
   cols = floor(width / w);
   rows = floor(height / w);
   grid = make2DArray(cols, rows);
