@@ -12,10 +12,8 @@ canvas{
 }
 
 h1 {
-  margin: .3em;
-  width: 290px;
-  text-align: center;
-  color: orange;
+  justify-content: center;
+  display: flex;
 }
 
 .ba{
@@ -29,6 +27,11 @@ h1 {
   margin: 0px;
 
 }
+.snakestyle{
+  justify-content: center;
+  display: flex;
+}
+
 
 .bo button{
   border: none;
